@@ -2,4 +2,4 @@
 Authors
 =======
 
-* Taylor Monacelli - https://blog.ionelmc.ro
+* Taylor Monacelli - https://blog.TaylorMonacelli.ro

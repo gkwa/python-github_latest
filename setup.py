@@ -34,7 +34,7 @@ setup(
     ),
     author="Taylor Monacelli",
     author_email="taylormonacelli@gmail.com",
-    url="https://github.com/ionelmc/python-github_latest",
+    url="https://github.com/TaylorMonacelli/python-github_latest",
     packages=find_packages("src"),
     package_dir={"": "src"},
     py_modules=[splitext(basename(path))[0] for path in glob("src/*.py")],
@@ -66,7 +66,7 @@ setup(
     project_urls={
         "Documentation": "https://python-github_latest.readthedocs.io/",
         "Changelog": "https://python-github_latest.readthedocs.io/en/latest/changelog.html",
-        "Issue Tracker": "https://github.com/ionelmc/python-github_latest/issues",
+        "Issue Tracker": "https://github.com/TaylorMonacelli/python-github_latest/issues",
     },
     keywords=[
         # eg: 'keyword1', 'keyword2', 'keyword3',

@@ -19,21 +19,21 @@ Overview
     :target: https://python-github_latest.readthedocs.io/
     :alt: Documentation Status
 
-.. |travis| image:: https://api.travis-ci.com/ionelmc/python-github_latest.svg?branch=master
+.. |travis| image:: https://api.travis-ci.com/TaylorMonacelli/python-github_latest.svg?branch=master
     :alt: Travis-CI Build Status
-    :target: https://travis-ci.com/github/ionelmc/python-github_latest
+    :target: https://travis-ci.com/github/TaylorMonacelli/python-github_latest
 
-.. |appveyor| image:: https://ci.appveyor.com/api/projects/status/github/ionelmc/python-github_latest?branch=master&svg=true
+.. |appveyor| image:: https://ci.appveyor.com/api/projects/status/github/TaylorMonacelli/python-github_latest?branch=master&svg=true
     :alt: AppVeyor Build Status
-    :target: https://ci.appveyor.com/project/ionelmc/python-github_latest
+    :target: https://ci.appveyor.com/project/TaylorMonacelli/python-github_latest
 
-.. |requires| image:: https://requires.io/github/ionelmc/python-github_latest/requirements.svg?branch=master
+.. |requires| image:: https://requires.io/github/TaylorMonacelli/python-github_latest/requirements.svg?branch=master
     :alt: Requirements Status
-    :target: https://requires.io/github/ionelmc/python-github_latest/requirements/?branch=master
+    :target: https://requires.io/github/TaylorMonacelli/python-github_latest/requirements/?branch=master
 
-.. |codecov| image:: https://codecov.io/gh/ionelmc/python-github_latest/branch/master/graphs/badge.svg?branch=master
+.. |codecov| image:: https://codecov.io/gh/TaylorMonacelli/python-github_latest/branch/master/graphs/badge.svg?branch=master
     :alt: Coverage Status
-    :target: https://codecov.io/github/ionelmc/python-github_latest
+    :target: https://codecov.io/github/TaylorMonacelli/python-github_latest
 
 .. |version| image:: https://img.shields.io/pypi/v/github-latest.svg
     :alt: PyPI Package latest release
@@ -51,9 +51,9 @@ Overview
     :alt: Supported implementations
     :target: https://pypi.org/project/github-latest
 
-.. |commits-since| image:: https://img.shields.io/github/commits-since/ionelmc/python-github_latest/v0.0.0.svg
+.. |commits-since| image:: https://img.shields.io/github/commits-since/TaylorMonacelli/python-github_latest/v0.0.0.svg
     :alt: Commits since latest release
-    :target: https://github.com/ionelmc/python-github_latest/compare/v0.0.0...master
+    :target: https://github.com/TaylorMonacelli/python-github_latest/compare/v0.0.0...master
 
 
 
@@ -72,7 +72,7 @@ Installation
 
 You can also install the in-development version with::
 
-    pip install https://github.com/ionelmc/python-github_latest/archive/master.zip
+    pip install https://github.com/TaylorMonacelli/python-github_latest/archive/master.zip
 
 
 Documentation
