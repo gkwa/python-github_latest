@@ -73,6 +73,7 @@ def main(argv=sys.argv):
     try:
         re.search(r"([\d.]+)", version).group(1)
     except AttributeError as ex:
+        logging.exception(f"{args.url} has no tags")
         raise
 
     logging.debug(f"{response.url=}")
