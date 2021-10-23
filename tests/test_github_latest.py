@@ -1,4 +1,3 @@
-
 from github_latest.cli import main
 
 
