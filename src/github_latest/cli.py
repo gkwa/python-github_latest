@@ -14,7 +14,14 @@ Why does this file exist, and why not put this in __main__?
 
   Also see (1) from http://click.pocoo.org/5/setuptools/#setuptools-integration
 """
+
+import argparse
+import logging
+import pathlib
 import sys
+
+import monacelli_pylog_prefs.logger
+import requests
 
 
 def main(argv=sys.argv):
@@ -27,5 +34,18 @@ def main(argv=sys.argv):
 
     Does stuff.
     """
-    print(argv)
+    monacelli_pylog_prefs.logger.setup(stream_level=logging.INFO)
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "url", help="example https://github.com/mozilla/sops/releases/latest"
+    )
+    args = parser.parse_args()
+    response = requests.get(args.url)
+    path = pathlib.Path(response.url)
+    vorig = path.name
+    vparsed = vorig.replace("v", "")
+    logging.debug("{response.url=}")
+    logging.debug(f"{vorig=}")
+    print(f"{vparsed}")
     return 0
