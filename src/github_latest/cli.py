@@ -18,6 +18,7 @@ Why does this file exist, and why not put this in __main__?
 import argparse
 import logging
 import pathlib
+import re
 import sys
 
 import monacelli_pylog_prefs.logger
@@ -68,6 +69,12 @@ def main(argv=sys.argv):
     path = pathlib.Path(response.url)
     tag = path.name
     version = tag.replace("v", "")
+
+    try:
+        re.search(r"([\d.]+)", version).group(1)
+    except AttributeError as ex:
+        raise
+
     logging.debug(f"{response.url=}")
     logging.debug(f"{tag=}")
     logging.debug(f"{version=}")
