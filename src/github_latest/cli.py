@@ -66,9 +66,10 @@ def main(argv=sys.argv):
 
     response = requests.get(args.url)
     path = pathlib.Path(response.url)
-    vorig = path.name
-    vparsed = vorig.replace("v", "")
-    logging.debug("{response.url=}")
-    logging.debug(f"{vorig=}")
-    print(f"{vparsed}")
+    tag = path.name
+    version = tag.replace("v", "")
+    logging.debug(f"{response.url=}")
+    logging.debug(f"{tag=}")
+    logging.debug(f"{version=}")
+    print(f"{version}")
     return 0
