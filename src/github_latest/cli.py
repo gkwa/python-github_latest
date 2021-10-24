@@ -29,11 +29,10 @@ def main(argv=sys.argv):
         stream_level=github_latest.args.args.logLevel.upper()
     )
 
-    logging.debug(f"{github_latest.args.args.url=}")
     resolver = github_latest.resolver.Resolver(github_latest.args.args.url)
     resolver.resolve()
-    logging.debug(f"{resolver.version=}")
     print(f"{resolver.version}")
+
     if not resolver.version_found():
         return 1
     return 0
