@@ -15,69 +15,25 @@ Why does this file exist, and why not put this in __main__?
   Also see (1) from http://click.pocoo.org/5/setuptools/#setuptools-integration
 """
 
-import argparse
 import logging
-import pathlib
-import re
 import sys
 
 import monacelli_pylog_prefs.logger
-import requests
+
+import github_latest.args
+import github_latest.resolver
 
 
 def main(argv=sys.argv):
-    """
-    Args:
-        argv (list): List of arguments
-
-    Returns:
-        int: A return code
-
-    Does stuff.
-    """
-
-    parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "url", help="example https://github.com/mozilla/sops/releases/latest"
+    monacelli_pylog_prefs.logger.setup(
+        stream_level=github_latest.args.args.logLevel.upper()
     )
 
-    parser.add_argument(
-        "-l",
-        "--log",
-        dest="logLevel",
-        default="INFO",
-        choices=[
-            "DEBUG",
-            "INFO",
-            "WARNING",
-            "ERROR",
-            "CRITICAL",
-            "debug",
-            "info",
-            "warning",
-            "error",
-            "critical",
-        ],
-        help="Set the logging level",
-    )
-
-    args = parser.parse_args()
-
-    monacelli_pylog_prefs.logger.setup(stream_level=args.logLevel.upper())
-
-    response = requests.get(args.url)
-    path = pathlib.Path(response.url)
-    tag = path.name
-    version = tag.replace("v", "")
-
-    try:
-        re.search(r"([\d.]+)", version).group(1)
-    except AttributeError as ex:
-        logging.exception(f"{args.url} has no releases")
-        raise
-
-    logging.debug(f"{response.url=}")
-    logging.debug(f"{tag=}")
-    logging.debug(f"{version=}")
-    print(f"{version}")
+    logging.debug(f"{github_latest.args.args.url=}")
+    resolver = github_latest.resolver.Resolver(github_latest.args.args.url)
+    resolver.resolve()
+    logging.debug(f"{resolver.version=}")
+    print(f"{resolver.version}")
+    if not resolver.version_found():
+        return 1
     return 0
