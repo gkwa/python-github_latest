@@ -73,8 +73,9 @@ def main(argv=sys.argv):
     try:
         re.search(r"([\d.]+)", version).group(1)
     except AttributeError as ex:
-        logging.exception(f"{args.url} has no releases")
         raise
+    finally:
+        logging.exception(f"{args.url} has no releases")
 
     logging.debug(f"{response.url=}")
     logging.debug(f"{tag=}")
