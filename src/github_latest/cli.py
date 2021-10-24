@@ -28,8 +28,10 @@ def main(argv=sys.argv):
     monacelli_pylog_prefs.logger.setup(
         stream_level=github_latest.args.args.logLevel.upper()
     )
-    strategy = RedirectResolvingStragey()
+
     strategy = ApiResolvingStragey()
+    strategy = RedirectResolvingStragey()
+
     resolver = Resolver(github_latest.args.args.url, strategy)
     resolver.resolve()
     print(f"{resolver.version}")

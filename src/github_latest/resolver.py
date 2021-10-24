@@ -9,17 +9,29 @@ import requests
 
 
 class ResolverStategy(abc.ABC):
+
+    def get(self, url: str) -> requests.Response:
+        response = requests.get(url)
+        assert response.status_code == 200
+        return response
+
     @abc.abstractmethod
     def resolve(self):
         pass
 
 
 class ApiResolvingStragey(ResolverStategy):
-    def resolve(self, url: str) -> str:
-        api_url = url.replace("https://github.com", "https://api.github.com/repos")
-        logging.debug(f"{api_url=}")
 
-        response = requests.get(api_url)
+    def change_endpoint(self, url: str) -> str:
+        api = url.replace("https://github.com", "https://api.github.com/repos")
+        logging.debug(f"{api=}")
+        return api
+
+    def resolve(self, url: str) -> str:
+
+        url = self.change_endpoint(url)
+        response = self.get(url)
+
         js = response.json()
         logging.debug(json.dumps(js, indent=2))
 
@@ -33,8 +45,10 @@ class ApiResolvingStragey(ResolverStategy):
 
 
 class RedirectResolvingStragey(ResolverStategy):
+
     def resolve(self, url: str) -> str:
-        response = requests.get(url)
+        response = self.get(url)
+
         logging.debug(f"{response.url=}")
 
         path = pathlib.Path(response.url)
