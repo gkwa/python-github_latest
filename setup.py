@@ -22,7 +22,7 @@ def read(*names, **kwargs):
 
 setup(
     name="github-latest",
-    version='0.4.1',
+    version='0.4.2',
     license="BSD-2-Clause",
     description="An example package. Generated with cookiecutter-pylibrary.",
     long_description="%s\n%s"
