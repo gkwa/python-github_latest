@@ -51,9 +51,9 @@ Overview
     :alt: Supported implementations
     :target: https://pypi.org/project/github-latest
 
-.. |commits-since| image:: https://img.shields.io/github/commits-since/TaylorMonacelli/python-github_latest/v0.2.0.svg
+.. |commits-since| image:: https://img.shields.io/github/commits-since/TaylorMonacelli/python-github_latest/v0.3.0.svg
     :alt: Commits since latest release
-    :target: https://github.com/TaylorMonacelli/python-github_latest/compare/v0.2.0...master
+    :target: https://github.com/TaylorMonacelli/python-github_latest/compare/v0.3.0...master
 
 
 
