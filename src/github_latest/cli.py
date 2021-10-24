@@ -20,7 +20,7 @@ import sys
 import monacelli_pylog_prefs.logger
 
 import github_latest.args
-from github_latest.resolver2 import Resolver
+from github_latest.resolver import Resolver
 
 
 def main(argv=sys.argv):
@@ -29,7 +29,7 @@ def main(argv=sys.argv):
     )
 
     resolver = Resolver(github_latest.args.args.url)
-    resolver.resolve()
+    resolver.resolve2()
     print(f"{resolver.version}")
 
     if not resolver.version_found():
