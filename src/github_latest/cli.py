@@ -20,16 +20,18 @@ import sys
 import monacelli_pylog_prefs.logger
 
 import github_latest.args
+from github_latest.resolver import ApiResolvingStragey
+from github_latest.resolver import RedirectResolvingStragey
 from github_latest.resolver import Resolver
-
 
 def main(argv=sys.argv):
     monacelli_pylog_prefs.logger.setup(
         stream_level=github_latest.args.args.logLevel.upper()
     )
-
-    resolver = Resolver(github_latest.args.args.url)
-    resolver.resolve2()
+    strategy = RedirectResolvingStragey()
+    strategy = ApiResolvingStragey()
+    resolver = Resolver(github_latest.args.args.url, strategy)
+    resolver.resolve()
     print(f"{resolver.version}")
 
     if not resolver.version_found():
