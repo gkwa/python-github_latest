@@ -20,7 +20,7 @@ project = "github_latest"
 year = "2021"
 author = "Taylor Monacelli"
 copyright = "{0}, {1}".format(year, author)
-version = release = '0.0.7'
+version = release = '0.1.0'
 
 pygments_style = "trac"
 templates_path = ["."]
