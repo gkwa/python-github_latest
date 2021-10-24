@@ -20,7 +20,7 @@ import sys
 import monacelli_pylog_prefs.logger
 
 import github_latest.args
-import github_latest.resolver
+from github_latest.resolver2 import Resolver
 
 
 def main(argv=sys.argv):
@@ -28,7 +28,7 @@ def main(argv=sys.argv):
         stream_level=github_latest.args.args.logLevel.upper()
     )
 
-    resolver = github_latest.resolver.Resolver(github_latest.args.args.url)
+    resolver = Resolver(github_latest.args.args.url)
     resolver.resolve()
     print(f"{resolver.version}")
 
