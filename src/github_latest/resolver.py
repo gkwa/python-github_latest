@@ -8,7 +8,7 @@ import re
 import requests
 
 
-class ResolverStategy(abc.ABC):
+class ResolverStrategy(abc.ABC):
 
     def get(self, url: str) -> requests.Response:
         response = requests.get(url)
@@ -20,7 +20,7 @@ class ResolverStategy(abc.ABC):
         pass
 
 
-class ApiResolvingStragey(ResolverStategy):
+class ApiResolvingStragey(ResolverStrategy):
 
     def change_endpoint(self, url: str) -> str:
         api = url.replace("https://github.com", "https://api.github.com/repos")
@@ -44,7 +44,7 @@ class ApiResolvingStragey(ResolverStategy):
         return version
 
 
-class RedirectResolvingStragey(ResolverStategy):
+class RedirectResolvingStragey(ResolverStrategy):
 
     def resolve(self, url: str) -> str:
         response = self.get(url)
@@ -64,7 +64,7 @@ class RedirectResolvingStragey(ResolverStategy):
 @dataclasses.dataclass
 class Resolver:
     url: str
-    resolver: ResolverStategy
+    resolver: ResolverStrategy
     version: str = None
 
     def __post_init__(self):
